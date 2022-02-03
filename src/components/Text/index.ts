@@ -9,15 +9,15 @@ interface Props {
   align?: TextStyle['textAlign'];
   alignVertical?: TextStyle['textAlignVertical'];
   lineHeight?: number;
-  weight?: number;
+  weight?: string;
 }
 
 const Text = styled.Text<Props>`
   text-align: ${({align}) => align || 'auto'};
   text-align-vertical: ${({alignVertical}) => alignVertical || 'auto'};
-  font-size: ${({size}) => size || 30}px;
-  font-weight: ${({weight}) => weight || 400};
+  font-size: ${({size}) => size || 16}px;
   color: ${({color}) => color || '#000'};
+  font-family: ${({weight}) => (weight ? `Ubuntu-${weight}` : 'Ubuntu-Bold')};
   text-decoration: ${({hasUnderline, color}) =>
     hasUnderline ? `underline ${color || '#000'}` : 'none'};
   ${({lineHeight}) =>
